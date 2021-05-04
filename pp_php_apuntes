@@ -1,0 +1,259 @@
+FUNDAMENTOS DE LA PROGRAMACION: 
+	
+	0. Como correr el script 
+	1. Def. de variables y tipos
+	2. Logica
+	3. Iteracion y control de flujo
+	4. Metodos y est. de datos
+
+
+PASOS:
+
+	1. Instalar XAMPP. Descargar de google
+		WEB SERVER: 
+			Apache2, PHP
+	
+	2. Script con extension php (index.php)
+	3. Navegador
+
+
+	* Una vez que le doy Start al apache. Levanta un servidor web con la url: http://localhost
+	Servidor HTTP
+
+	* Crear una carpeta dentro de: c://xampp/htdocs/curso-php
+	* Abrimos la carpeta con sublime: 
+		- File > Open Folder > curso-php
+
+	* Crear un archivo dentro de la carpeta con nombre: index.php
+	* Voy al navegador y escribo la url: http://localhost/curso-php
+
+
+COMO ESCRIBO "HOLA MUNDO" en PHP ?
+
+- Crear un script de PHP tenemos que utilizar la sintaxis:
+	
+	<?php 
+		... codigo ... 
+	?>
+
+	Casi toda instruccion debe tener un ";" para finalizar
+
+	Ref: https://www.w3schools.com/php/php_syntax.asp
+
+DEF. DE VARIABLES Y TIPOS DE DATOS
+
+	DEF. DE VARIABLES: Almacenar informacion.
+	TIPO DE DATOS: Que informacion voy almacenar.
+
+	- Enteros (int)
+	- Float 
+	- Booleanos
+	- Strings 
+	- Array
+	- Objs (x)
+
+
+	$nombre = "Alex Casadevall"; -> Es una variable de tipo string con valor "Alex Casadevall"
+	$edad 	= 29; -> Es una var. de tipo int con valor 29 
+
+	Como muestro mis variables en pantalla luego de definirlas?
+
+	* Utilizamos la funcion: var_dump($variable); para depurar el contenido de la variable y su tipo en en pantalla.
+
+	$altura = 1.91; 	-> Tipo de dato Float
+	$casado = false; 	-> Tipo de dato booleano [true, false]
+
+	ARRAYS
+
+	El array es una lista o vector
+
+		$abc 	= array("a", "b", "c", "d");
+		$v 	 	= array(1, 2, 3, 4);
+		$mixto 	= array("a", 1, 2, "b");
+
+LOGICA
+
+	- Que son las condicionales? Y como se construyen? 
+
+		$cond = true // O false 
+
+		IF - ELSE 
+
+		if($cond == ture){
+		
+			// EJECUTO CODIGO 1
+		
+		} else {
+			
+			// EJECUTO CODIGO 2
+		}
+
+		EJEMPLO: Permito accesos al sitio web si el usuario tiene una [edad mayor a 18 años].
+				 Caso el usuario tenga una [edad menor a 18 años] muestro un alerta
+
+		Dos condicionales: 
+
+			COND1: [edad mayor a 18 años] -> Es el usuario mayor de 18?
+			COND2: [edad menor a 18 años] -> Es el usuario menor de 18?
+
+			COND1 es la negativa de COND2, o el caso contrario
+
+			SI SE CUMPLE COND1 NO SE CUMPLE COND2
+
+
+		ALEX, TENGO 29. 
+
+			$edad = 29;
+
+			ES ALEX COND1 ? -> SI, true 
+			ES ALEX COND2 ? -> NO, false 
+
+
+		Dos formas de crear condicionales: 
+			- Condicionales algebraicas, o sea, comparamos valores (estrictamente numericos)
+			- Condicionales logicas, comparamos condiciones que ya son verdaderas o falsas
+
+
+		$edad = 29;
+		$edadPermitida = 18;
+
+		$cond1 = $edad > $edadPermitida; // es 29 > 18 ? 
+
+		$cond1 si verificamos es "true"
+
+		$cond2 = $edad < $edadPermitida; 
+
+		Comparadores: >, <, >=, <=,
+						== (igual), === (equivalencia)
+					   != (distinto), !== (inequivalente)
+
+		$cond = $edad > 18  -> (18, ... ) -> true
+		$cond = $edad >= 18 -> [18, ... ) -> true
+		$cond = $edad == 18 -> false 
+		$cond = 18 === "18" -> false -> El valor son iguales pero el tipo de dato es distinto:
+										Comparando un int con un string 
+
+		-----
+
+
+		Condicionales logicas: 
+
+			Operadores: AND, OR, NOT
+
+				AND: &&
+				OR: || 
+				NOT: != (!==)
+
+			$cond1 = true 
+			$cond2 = false 
+
+			EJEMPLO: Registro de un formulario, para X motivo. La persona tiene que cumplir la siguiente condicion: 
+				- Mayor de 18
+				- Tiene que estar casado
+				...
+				SI NO CUMPLE LAS DOS CONDICIONES NO SE PUEDE DAR DE ALTA EL REGISTRO
+
+			CASO 1:
+
+			$esMayor  = true 
+			$esCasado = true 
+
+			$altaForm = $esMayor && $esCasado -> VA A SER TRUE SI esMayor y esCasado es TRUE 
+
+			CASO 2:
+
+			$esMayor  = true 
+			$esCasado = false
+
+			$altaForm = $esMayor && $esCasado -> VA A SER FALSE
+
+			CASO 3:
+
+			$esMayor  = false 
+			$esCasado = false
+
+			$altaForm = $esMayor && $esCasado -> VA A SER FALSE 
+
+
+			Regla del AND (TRUE): Toda comparacion de una cadena de condicionales AND es TRUE si todas las condiciones de esa cadena es TRUE.
+
+			Regla del AND (False): Toda comparacion de una cadena de condicionales AND es FALSE si por lo menos una condicional es FALSE
+
+			$condN = $cond1 && .. $condi && .. && $condn1 
+
+			OR: 
+
+			EJEMPLO: Registro de un formulario, para X motivo. La persona tiene que cumplir una de las siguientes condiciones: 
+				- Mayor de 18
+				- Tiene que estar casado
+			
+			CASO 1: 
+
+			$esMayor  = true
+			$esCasado = true 
+
+			$altaForm = $esMayor || $esCasado -> TRUE 
+
+			CASO 2: 
+
+			$esMayor  = true
+			$esCasado = false 
+
+			$altaForm = $esMayor || $esCasado -> TRUE 
+
+			CASO 3: 
+
+			$esMayor  = false
+			$esCasado = false 
+
+			$altaForm = $esMayor || $esCasado -> FALSE
+
+
+			Regla del OR (TRUE): Toda comparacion de una cadena de condicionales OR es TRUE si por lo menos una condicional es TRUE.
+
+			Regla del OR (FALSE): Toda comparacion de una cadena de condicionales OR es FALSE si todos las condicionales de la cadena es FALSE.
+
+
+			$condN = $cond1 || ... || $condN1; 
+
+
+		EJEMPLO: Voy a viajar a Brasil y tengo que cumplir las siguientes condiciones:
+			- Pasaporte o CI
+			- Pasaje 
+			- Vacuna de COVID 
+
+			$tienePasaporte = false
+			$tieneCI 		= true 
+
+			$pasaje 		= true 
+			$vacuna 		= true 
+
+			$condDocumento  = $tienePasaporte || $tieneCI; -> TRUE 
+
+			$condViaje 		= $condDocumento && $pasaje && $vacuna; -> TRUE 
+
+
+EJERCICIO: 
+
+	- Revisar sintaxis de operadores aritmeticos (+, -, *, /)
+	- Crear un programa: 
+
+		- Calcule el area del circulo 
+		- Area del cuadrado
+		- Area del triangulo
+
+	- Crear una calculadora con operaciones elementales: 
+		- Suma, Resta, Multiplicacion y Division 
+
+
+ 	EJEMPLO: Area del cuadrado
+
+ 		Area = Lado x Lado 
+
+ 		- Def. de variables que voy a utilizar para calcular: 
+ 			$area, $lado
+ 		- Calculamos 
+ 		- Desplegamos la informacion
+ 			"Resultado del cuadrado: 100"
+
+
