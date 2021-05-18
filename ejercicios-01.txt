@@ -1,0 +1,40 @@
+EJERCICIO 1 (x). 
+
+	- Calcular area del circulo
+	- Calcular area del triangulo
+
+EJERCICIO 2 (x). 
+
+	- Crear un programa que verifique si la edad de la persona es mayor a 23 años
+		- Si la persona tiene mas de 23 años despliegue el resultado: 
+			"USUARIO HABILITADO"
+
+		- Caso contrario
+			"USUARIO NO HABILITADO"
+
+EJERCICIO 3 (x). 
+
+	- Verificar si un usuario puede viajar a USA teniendo en cuenta si:
+		
+		- Esta vacunado
+		- Tiene pasaporte
+		- Es mayor de edad (Asumimos que es mayor o igual a 18)
+
+		Si el usuario cumple con todas las condiciones en simultaneo que despliegue
+		el resultado: 
+			"USUARIO PUEDE VIAJAR"
+
+		Caso contrario
+			"USUARIO NO PUEDE VIAJAR"
+
+EJERCICIO 4 (x). 
+
+	- Calcular la Fuerza de un tractor en función de la siguiente ecuación: 
+		F = m . a
+
+		- Donde la aceleración es de 10 m/s2
+		- La masa es de 1000 kg
+
+		Desplegar el resultado en pantalla:
+
+			"LA FUERZA ES: 100 N"
